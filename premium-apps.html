@@ -1,0 +1,462 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Apps | ZofianShop</title>
+  <meta name="description" content="Premium Apps from ZofianShop">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .home-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 18px 42px rgba(47, 128, 255, 0.26);
+    }
+
+    .apps-hero {
+      padding: clamp(72px, 12vw, 132px) 0 48px;
+      max-width: 760px;
+    }
+
+    .apps-hero h1 {
+      margin-bottom: 18px;
+      font-size: clamp(52px, 12vw, 96px);
+    }
+
+    .apps-hero p:not(.eyebrow) {
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .apps-section {
+      padding-top: 44px;
+      padding-bottom: 112px;
+    }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .apps-grid .app-card {
+      min-height: 214px;
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: start;
+      border-radius: 24px;
+      box-shadow: 0 18px 58px rgba(0, 0, 0, 0.28);
+      cursor: pointer;
+      transition: transform .25s ease-out, box-shadow .25s ease-out, border-color .25s ease-out, background .25s ease-out;
+    }
+
+    .apps-grid .app-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: rgba(47, 128, 255, 0.68);
+      box-shadow: 0 34px 86px rgba(0, 0, 0, 0.52), 0 0 0 1px rgba(47, 128, 255, 0.24), 0 18px 58px rgba(47, 128, 255, 0.22);
+    }
+
+    .logo-frame {
+      width: 76px;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 22px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, .28);
+      overflow: hidden;
+      transition: transform .25s ease-out, box-shadow .25s ease-out;
+    }
+
+    .apps-grid .app-card:hover .logo-frame,
+    .logo-frame:hover {
+      transform: scale(1.08) rotate(1.5deg);
+    }
+
+    .logo-frame img {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .logo-frame img.logo-cover {
+      padding: 0;
+      object-fit: cover;
+    }
+
+    .apps-grid .app-card-body {
+      display: block;
+      align-self: center;
+      margin-top: 18px;
+    }
+
+    .apps-grid .app-card-body strong {
+      display: block;
+      font-size: 18px;
+      line-height: 1.22;
+    }
+
+    .apps-grid .card-button {
+      align-self: end;
+      height: 42px;
+      min-height: 42px;
+      margin-top: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid rgba(80, 160, 255, .45);
+      border-radius: 14px;
+      background: transparent;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform .25s ease-out, background .25s ease-out, border-color .25s ease-out, color .25s ease-out, box-shadow .25s ease-out;
+    }
+
+    .apps-grid .app-card:hover .card-button,
+    .apps-grid .card-button:hover {
+      transform: translateY(-3px);
+      border-color: #2f80ff;
+      background: linear-gradient(135deg, #2f80ff, #73b7ff);
+      color: #fff;
+      box-shadow: 0 20px 46px rgba(47, 128, 255, 0.34), 0 0 28px rgba(47, 128, 255, 0.18);
+    }
+
+    .apps-grid .card-button:active {
+      transform: translateY(-1px) scale(0.99);
+    }
+
+    .apps-search {
+      margin-bottom: 28px;
+    }
+
+    .apps-search input {
+      width: 100%;
+      min-height: 56px;
+      padding: 0 20px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      outline: 0;
+      background: rgba(255, 255, 255, 0.055);
+      color: #fff;
+      font: inherit;
+      font-weight: 600;
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.24), 0 0 30px rgba(47, 128, 255, 0.06);
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .apps-search input::placeholder {
+      color: rgba(255, 255, 255, 0.48);
+    }
+
+    .apps-search input:focus {
+      border-color: rgba(90, 168, 255, 0.62);
+      background: rgba(255, 255, 255, 0.075);
+      box-shadow: 0 22px 58px rgba(0, 0, 0, 0.32), 0 0 0 1px rgba(90, 168, 255, 0.18), 0 0 34px rgba(47, 128, 255, 0.14);
+    }
+
+    .apps-grid .app-card {
+      opacity: 1;
+      transition: opacity 0.25s ease, transform .25s ease-out, box-shadow .25s ease-out, border-color .25s ease-out, background .25s ease-out;
+    }
+
+    .apps-grid .app-card.is-filtered-out {
+      opacity: 0;
+      transform: translateY(12px) scale(0.98);
+      pointer-events: none;
+    }
+
+    .home-footer {
+      padding: 28px 0;
+      min-height: 118px;
+      align-items: flex-start;
+    }
+
+    .footer-brand {
+      display: grid;
+      gap: 6px;
+    }
+
+    .footer-title {
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 16px;
+      font-weight: 700;
+    }
+
+    @media (min-width: 720px) {
+      .apps-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .apps-grid .app-card {
+        min-height: 232px;
+        padding: 24px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .apps-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .apps-hero {
+        padding-top: 58px;
+      }
+
+      .apps-section {
+        padding-top: 28px;
+        padding-bottom: 78px;
+      }
+
+      .home-footer,
+      .footer-links {
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+
+      .home-footer {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="ZofianShop Home">
+      <img
+        class="home-logo"
+        src="assets/logo/logo.png"
+        alt="ZofianShop logo"
+      >
+      <span>ZofianShop</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="index.html">หน้าแรก</a>
+      <a href="premium-apps.html" aria-current="page">แอปพรีเมียม</a>
+      <a href="contact.html">ติดต่อเรา</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero apps-hero">
+      <p class="eyebrow">ZofianShop</p>
+      <h1>Premium Apps</h1>
+      <p>Premium Streaming, Premium Music, Premium Entertainment.</p>
+    </section>
+
+    <section class="section apps-section" aria-label="Premium Apps">
+      <div class="apps-search" role="search">
+        <input type="search" id="productSearch" placeholder="ค้นหาแอป..." aria-label="ค้นหาแอป" autocomplete="off">
+      </div>
+
+      <div class="apps-grid">
+        <a class="app-card" href="products/netflix.html">
+          <span class="logo-frame app-icon app-logo"><img class="logo-cover" src="assets/icons/ios/netflix.png" alt="Netflix logo"></span>
+          <span class="app-card-body"><strong>Netflix</strong></span>
+          <span class="card-button">รายละเอียด</span>
+        </a>
+
+        <a class="app-card" href="products/disney.html">
+          <span class="logo-frame app-icon app-logo"><img class="logo-cover" src="assets/icons/ios/disney.png" alt="Disney+ logo"></span>
+          <span class="app-card-body"><strong>Disney+</strong></span>
+          <span class="card-button">รายละเอียด</span>
+        </a>
+
+        <a class="app-card" href="products/hbo-max.html">
+          <span class="logo-frame app-icon app-logo"><img class="logo-cover" src="assets/icons/ios/hbo-max.png" alt="HBO Max logo"></span>
+          <span class="app-card-body"><strong>HBO Max</strong></span>
+          <span class="card-button">รายละเอียด</span>
+        </a>
+
+        <a class="app-card" href="products/spotify.html">
+          <span class="logo-frame app-icon app-logo"><img src="assets/icons/ios/spotify.png" alt="Spotify logo"></span>
+          <span class="app-card-body"><strong>Spotify</strong></span>
+          <span class="card-button">รายละเอียด</span>
+        </a>
+
+        <a class="app-card" href="products/youtube-premium.html">
+          <span class="logo-frame app-icon app-logo"><img src="assets/icons/ios/youtube-premium.png" alt="YouTube Premium logo"></span>
+          <span class="app-card-body"><strong>YouTube Premium</strong></span>
+          <span class="card-button">รายละเอียด</span>
+        </a>
+
+        <a class="app-card" href="products/prime-video.html">
+          <span class="logo-frame app-icon app-logo"><img class="logo-cover" src="assets/icons/ios/prime-video.png" alt="Prime Video logo"></span>
+          <span class="app-card-body"><strong>Prime Video</strong></span>
+          <span class="card-button">รายละเอียด</span>
+        </a>
+
+        <a class="app-card" href="products/apple-music.html">
+          <span class="logo-frame app-icon app-logo"><img src="assets/icons/ios/apple-music.png" alt="Apple Music logo"></span>
+          <span class="app-card-body"><strong>Apple Music</strong></span>
+          <span class="card-button">รายละเอียด</span>
+        </a>
+
+        <a class="app-card" href="products/apple-tv.html">
+          <span class="logo-frame app-icon app-logo"><img src="assets/icons/ios/apple-tv.png" alt="Apple TV+ logo"></span>
+          <span class="app-card-body"><strong>Apple TV+</strong></span>
+          <span class="card-button">รายละเอียด</span>
+        </a>
+
+        <a class="app-card" href="products/iqiyi.html">
+          <span class="logo-frame app-icon app-logo"><img src="assets/icons/ios/IQIYI.png" alt="iQIYI logo"></span>
+          <span class="app-card-body"><strong>iQIYI</strong></span>
+          <span class="card-button">รายละเอียด</span>
+        </a>
+
+        <a class="app-card" href="products/viu.html">
+          <span class="logo-frame app-icon app-logo"><img src="assets/icons/ios/Viu.png" alt="Viu logo"></span>
+          <span class="app-card-body"><strong>Viu</strong></span>
+          <span class="card-button">รายละเอียด</span>
+        </a>
+
+        <a class="app-card" href="products/wetv.html">
+          <span class="logo-frame app-icon app-logo"><img src="assets/icons/ios/wetv.png" alt="WeTV logo"></span>
+          <span class="app-card-body"><strong>WeTV</strong></span>
+          <span class="card-button">รายละเอียด</span>
+        </a>
+
+        <a class="app-card" href="products/monomax.html">
+          <span class="logo-frame app-icon app-logo"><img class="logo-cover" src="assets/icons/ios/monomax.png" alt="Monomax logo"></span>
+          <span class="app-card-body"><strong>Monomax</strong></span>
+          <span class="card-button">รายละเอียด</span>
+        </a>
+
+        <a class="app-card" href="products/truevision-now.html">
+          <span class="logo-frame app-icon app-logo"><img src="assets/icons/ios/truevision-now.png" alt="TrueVisions NOW logo"></span>
+          <span class="app-card-body"><strong>TrueVisions NOW</strong></span>
+          <span class="card-button">รายละเอียด</span>
+        </a>
+
+        <a class="app-card" href="products/ch3-plus.html">
+          <span class="logo-frame app-icon app-logo"><img src="assets/icons/ios/ch3-plus.png" alt="CH3+ logo"></span>
+          <span class="app-card-body"><strong>CH3+</strong></span>
+          <span class="card-button">รายละเอียด</span>
+        </a>
+
+        <a class="app-card" href="products/bilibili.html">
+          <span class="logo-frame app-icon app-logo"><img src="assets/icons/ios/bilibili.png" alt="Bilibili logo"></span>
+          <span class="app-card-body"><strong>Bilibili</strong></span>
+          <span class="card-button">รายละเอียด</span>
+        </a>
+
+        <a class="app-card" href="products/reelshort.html">
+          <span class="logo-frame app-icon app-logo"><img src="assets/icons/ios/reelshort.png" alt="ReelShort logo"></span>
+          <span class="app-card-body"><strong>ReelShort</strong></span>
+          <span class="card-button">รายละเอียด</span>
+        </a>
+
+        <a class="app-card" href="products/dramabox.html">
+          <span class="logo-frame app-icon app-logo"><img src="assets/icons/ios/dramabox.png" alt="DramaBox logo"></span>
+          <span class="app-card-body"><strong>DramaBox</strong></span>
+          <span class="card-button">รายละเอียด</span>
+        </a>
+
+        <a class="app-card" href="products/shortmax.html">
+          <span class="logo-frame app-icon app-logo"><img src="assets/icons/ios/shortmax.png" alt="ShortMax logo"></span>
+          <span class="app-card-body"><strong>ShortMax</strong></span>
+          <span class="card-button">รายละเอียด</span>
+        </a>
+
+        <a class="app-card" href="products/canva.html">
+          <span class="logo-frame app-icon app-logo"><img src="assets/icons/ios/Canva.png" alt="Canva logo"></span>
+          <span class="app-card-body"><strong>Canva</strong></span>
+          <span class="card-button">รายละเอียด</span>
+        </a>
+
+        <a class="app-card" href="products/bugaboo-tv.html">
+          <span class="logo-frame app-icon app-logo"><img src="assets/icons/ios/bugaboo-tv.png" alt="Bugaboo TV logo"></span>
+          <span class="app-card-body"><strong>Bugaboo TV</strong></span>
+          <span class="card-button">รายละเอียด</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+    <footer class="site-footer home-footer">
+    <div class="footer-brand">
+      <span>&copy; 2026 ZofianShop</span>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">หน้าแรก</a>
+      <a href="premium-apps.html">แอปพรีเมียม</a>
+      <a href="contact.html">ติดต่อ</a>
+    </div>
+  </footer>
+  <script>
+    const productSearch = document.querySelector('#productSearch');
+    const appCards = Array.from(document.querySelectorAll('.apps-grid .app-card'));
+    const reducedSearchMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const normalizeText = (value) => value.toLowerCase().replace(/\s+/g, '');
+
+    if (productSearch && appCards.length) {
+      appCards.forEach((card) => {
+        const name = card.querySelector('strong')?.textContent || '';
+        card.dataset.searchName = normalizeText(name);
+      });
+
+      productSearch.addEventListener('input', () => {
+        const query = normalizeText(productSearch.value);
+
+        appCards.forEach((card) => {
+          if (!query) {
+            card.hidden = false;
+            card.classList.remove('is-filtered-out');
+            return;
+          }
+
+          const matched = card.dataset.searchName.includes(query);
+
+          if (matched) {
+            card.hidden = false;
+            if (!reducedSearchMotion) {
+              requestAnimationFrame(() => card.classList.remove('is-filtered-out'));
+            } else {
+              card.classList.remove('is-filtered-out');
+            }
+            return;
+          }
+
+          card.classList.add('is-filtered-out');
+
+          if (reducedSearchMotion) {
+            card.hidden = true;
+            return;
+          }
+
+          window.setTimeout(() => {
+            if (card.classList.contains('is-filtered-out')) {
+              card.hidden = true;
+            }
+          }, 250);
+        });
+      });
+    }
+  </script>
+  <script src="js/reveal.js" defer></script>
+  <script src="js/ui-effects.js" defer></script>
+  <script src="js/page-transition.js" defer></script>
+</body>
+</html>

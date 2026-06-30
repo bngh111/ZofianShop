@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | ZofianShop</title>
+  <meta name="description" content="ติดต่อ ZofianShop ผ่าน LINE Official และ Facebook">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .home-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 18px 42px rgba(47, 128, 255, 0.26);
+    }
+
+    .contact-page-hero {
+      padding: clamp(72px, 12vw, 132px) 0 42px;
+      max-width: 760px;
+      text-align: center;
+    }
+
+    .contact-page-hero h1 {
+      margin-bottom: 18px;
+      font-size: clamp(48px, 11vw, 88px);
+      text-shadow: 0 8px 28px rgba(0, 0, 0, 0.58);
+    }
+
+    .contact-page-hero p:not(.eyebrow) {
+      max-width: 560px;
+      margin-inline: auto;
+      color: var(--muted);
+      font-size: 18px;
+      text-shadow: 0 6px 20px rgba(0, 0, 0, 0.36);
+    }
+
+    .contact-section {
+      padding-top: 30px;
+      padding-bottom: 112px;
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 22px;
+      justify-items: center;
+    }
+
+    .contact-card {
+      width: min(100%, 520px);
+      min-height: 300px;
+      display: grid;
+      gap: 18px;
+      align-content: start;
+      padding: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.035));
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      cursor: pointer;
+      transition: transform .25s ease-out, box-shadow .25s ease-out, border-color .25s ease-out, background .25s ease-out;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: rgba(47, 128, 255, 0.68);
+      background: linear-gradient(180deg, rgba(47, 128, 255, 0.14), rgba(255, 255, 255, 0.045));
+      box-shadow: 0 34px 86px rgba(0, 0, 0, 0.52), 0 0 0 1px rgba(47, 128, 255, 0.24), 0 18px 58px rgba(47, 128, 255, 0.22);
+    }
+
+    .line-card {
+      max-width: 620px;
+      min-height: 360px;
+      padding: clamp(30px, 6vw, 44px);
+      justify-items: center;
+      text-align: center;
+      border-color: rgba(6, 199, 85, 0.22);
+      box-shadow: 0 34px 96px rgba(0, 0, 0, 0.44), 0 0 56px rgba(6, 199, 85, 0.08);
+    }
+
+    .facebook-card {
+      max-width: 440px;
+      min-height: 236px;
+      padding: 26px;
+      justify-items: center;
+      text-align: center;
+      opacity: 0.92;
+    }
+
+    .contact-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 20px;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+      transition: transform .25s ease-out, box-shadow .25s ease-out;
+    }
+
+    .contact-card:hover .contact-icon {
+      transform: scale(1.08) rotate(1.5deg);
+      box-shadow: 0 24px 58px rgba(0, 0, 0, 0.38);
+    }
+
+    .contact-card h2 {
+      margin: 2px 0 0;
+      font-size: 28px;
+      line-height: 1.1;
+    }
+
+    .line-card h2 {
+      font-size: clamp(34px, 7vw, 48px);
+    }
+
+    .facebook-card h2 {
+      font-size: 24px;
+    }
+
+    .contact-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .contact-placeholder {
+      display: inline-flex;
+      width: fit-content;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #dbeafe;
+      background: rgba(255, 255, 255, 0.05);
+      font-weight: 700;
+    }
+
+    .contact-card .button {
+      width: 100%;
+      margin-top: auto;
+    }
+
+    .line-card .button {
+      min-height: 62px;
+      font-size: 18px;
+      box-shadow: 0 22px 58px rgba(6, 199, 85, 0.32), 0 0 34px rgba(6, 199, 85, 0.16);
+    }
+
+    .facebook-card .button {
+      min-height: 46px;
+      font-size: 15px;
+    }
+
+    .facebook-button {
+      background: #1877f2;
+      box-shadow: 0 18px 44px rgba(24, 119, 242, 0.26);
+    }
+
+    .facebook-button:hover {
+      background: linear-gradient(135deg, #1877f2, #5aa7ff);
+      box-shadow: 0 24px 62px rgba(24, 119, 242, 0.42), 0 0 32px rgba(24, 119, 242, 0.22);
+    }
+
+    .home-action {
+      display: grid;
+      place-items: center;
+      margin-top: 40px;
+    }
+
+    .home-action .button {
+      min-width: min(100%, 320px);
+      min-height: 58px;
+      font-size: 18px;
+    }
+
+    .home-footer {
+      padding: 28px 0;
+      min-height: 118px;
+      align-items: flex-start;
+    }
+
+    .footer-brand {
+      display: grid;
+      gap: 6px;
+    }
+
+    .footer-title {
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 16px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 680px) {
+      .contact-page-hero {
+        padding-top: 58px;
+      }
+
+      .contact-section {
+        padding-top: 28px;
+        padding-bottom: 78px;
+      }
+
+      .contact-card {
+        min-height: 280px;
+        padding: 24px;
+      }
+
+      .line-card {
+        min-height: 340px;
+      }
+
+      .facebook-card {
+        min-height: 230px;
+      }
+
+      .home-footer,
+      .footer-links {
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+
+      .home-footer {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="ZofianShop Home">
+      <img
+        class="home-logo"
+        src="assets/logo/logo.png"
+        alt="ZofianShop logo"
+      >
+      <span>ZofianShop</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="index.html">หน้าแรก</a>
+      <a href="premium-apps.html">แอปพรีเมียม</a>
+      <a href="contact.html" aria-current="page">ติดต่อเรา</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero contact-page-hero">
+      <p class="eyebrow">ZofianShop</p>
+      <h1>ติดต่อเรา</h1>
+      <p>
+        พร้อมให้บริการทุกวัน<br>
+        หากต้องการสั่งซื้อหรือสอบถามเพิ่มเติม<br>
+        สามารถติดต่อเราได้ผ่านช่องทางด้านล่าง
+      </p>
+    </section>
+
+    <section class="section contact-section" aria-label="Contact channels">
+      <div class="contact-grid">
+        <article class="contact-card line-card">
+          <img class="contact-icon" src="assets/icons/ios/line.png" alt="LINE Official logo">
+          <h2>LINE Official</h2>
+          <p>สั่งซื้อ สอบถาม และติดต่อเราได้ตลอด</p>
+          <span class="contact-placeholder">wang_air</span>
+          <a class="button line-button" href="https://line.me/ti/p/uVaIh4QRzB" target="_blank" rel="noopener noreferrer">เพิ่มเพื่อน LINE</a>
+        </article>
+
+        <article class="contact-card facebook-card">
+          <img class="contact-icon" src="assets/icons/ios/facebook.png" alt="Facebook logo">
+          <h2>Facebook</h2>
+          <p>ติดตามข่าวสารและโปรโมชั่นล่าสุด</p>
+          <span class="contact-placeholder">Zofianna Btkm</span>
+          <a class="button facebook-button" href="https://www.facebook.com/share/1H74MqWkau/" target="_blank" rel="noopener noreferrer">เข้าชม Facebook</a>
+        </article>
+      </div>
+
+      <div class="home-action">
+        <a class="button" href="index.html">กลับหน้าหลัก</a>
+      </div>
+    </section>
+  </main>
+
+    <footer class="site-footer home-footer">
+    <div class="footer-brand">
+      <span>&copy; 2026 ZofianShop</span>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">หน้าแรก</a>
+      <a href="premium-apps.html">แอปพรีเมียม</a>
+      <a href="contact.html">ติดต่อ</a>
+    </div>
+  </footer>
+  <script src="js/reveal.js" defer></script>
+  <script src="js/ui-effects.js" defer></script>
+  <script src="js/page-transition.js" defer></script>
+</body>
+</html>
